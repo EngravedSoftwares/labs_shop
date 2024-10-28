@@ -12,23 +12,18 @@ class ResponsiveLayout extends StatelessWidget {
     required this.dekstopBody,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth < 550) {
-          return mobileBody;
-        } else if (constraints.maxWidth < 1100) {
-          return tabletBody;
-        } else {
-          return dekstopBody;
-        }
-      },
-    );
-  }
-}
+  // bool expression for mobile, tablet and desktop management
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 600;
 
-double widthOfScreen(BuildContext context) {
+  static bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 600 &&
+      MediaQuery.of(context).size.width < 1100;
+
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1100;
+
+  double widthOfScreen(BuildContext context) {
   return MediaQuery.of(context).size.width;
 }
 
@@ -54,3 +49,21 @@ double assignWidth(
 }) {
   return (widthOfScreen(context) - (subs) + (additions)) * fraction;
 }
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 600) {
+          return mobileBody;
+        } else if (constraints.maxWidth < 1100) {
+          return tabletBody;
+        } else {
+          return dekstopBody;
+        }
+      },
+    );
+  }
+}
+
+

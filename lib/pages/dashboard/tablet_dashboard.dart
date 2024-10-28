@@ -10,6 +10,6 @@ class TabletDashboard extends StatefulWidget {
 class _TabletDashboardState extends State<TabletDashboard> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
