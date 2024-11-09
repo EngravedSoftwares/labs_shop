@@ -12,6 +12,6 @@ class Dashboard extends StatelessWidget {
     return const ResponsiveLayout(
         mobileBody: MobileDashboard(),
         tabletBody: TabletDashboard(),
-        dekstopBody: DesktopDashboard());
+        desktopBody: DesktopDashboard());
   }
 }

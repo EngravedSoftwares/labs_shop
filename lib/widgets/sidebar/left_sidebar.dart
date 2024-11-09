@@ -12,12 +12,7 @@ class LeftSidebar extends StatelessWidget {
           DrawerHeader(
             child: Text('data'),
           ),
-          ListTile(
-            onTap: () {},
-            horizontalTitleGap: 0.0,
-            leading: Text('icon'),
-            title: Text("Dashboard"),
-          ),
+         
         ],
       ),
     );
